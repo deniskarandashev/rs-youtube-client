@@ -1,0 +1,27 @@
+.statistics {
+  width: 100%;
+  margin: 15px;
+
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.statistics > div {
+  display: flex;
+  align-items: center;
+}
+
+.statistics > div > img {
+  flex-shrink: 0;
+}
+
+.statistics > div > span {
+  color: #000;
+  font-family: Roboto;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 3px;
+  padding-right: 3px;
+}

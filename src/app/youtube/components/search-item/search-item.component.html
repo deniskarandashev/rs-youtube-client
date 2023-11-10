@@ -1,0 +1,28 @@
+<section
+  appColoredBorder="item.snippet.publishedAt"
+  class="card"
+  [style.width]="thumbnail.width + 'px'"
+>
+  <!-- thumbnail -->
+  <img
+    [src]="thumbnail.url"
+    [width]="thumbnail.width"
+    [height]="thumbnail.height"
+    alt="thumbnail"
+  />
+
+  <!-- statistics -->
+  <app-statistics
+    class="row statistics"
+    [style.width]="thumbnail.width"
+    [statistics]="item.statistics"
+  ></app-statistics>
+
+  <!-- title -->
+  <h2 class="item-title">{{ item.snippet.title }}</h2>
+
+  <!-- 'more' button -->
+  <app-button class="more-button" (click)="showMore()">more...</app-button>
+
+  <div class="indicator" [style.backgroundColor]="status"></div>
+</section>

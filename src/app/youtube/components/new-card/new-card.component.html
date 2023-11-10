@@ -1,0 +1,70 @@
+<section class="new-card-container">
+    <form class="new-card-card" [formGroup]="formGroup" (ngSubmit)="submit()">
+        <h2>Create new card</h2>
+
+        <div class="column">
+            <label for="title">Title</label>
+            <input id="title" name="title" formControlName="title" />
+
+            <div *ngIf="!!title && title.invalid && title.touched" class="alert">
+                <span *ngIf="title.errors?.['required']">Please enter a title</span>
+                <span *ngIf="title.errors?.['minlength']">The title is too short</span>
+                <span *ngIf="title.errors?.['maxlength']">The title is too long</span>
+            </div>
+        </div>
+
+        <div class="column">
+            <label for="description">Description</label>
+            <input id="description" name="description" formControlName="description" />
+
+            <div *ngIf="!!description && description.invalid && description.touched" class="alert">
+                <span *ngIf="description.errors?.['maxlength']">The description is too long</span>
+            </div>
+        </div>
+
+        <div class="column">
+            <label for="imgLink">Img</label>
+            <input id="imgLink" name="imgLink" formControlName="imgLink" />
+
+            <div *ngIf="!!imgLink && imgLink.invalid && imgLink.touched" class="alert">
+                <span *ngIf="imgLink.errors?.['required']">Please enter a link to the image</span>
+            </div>
+        </div>
+
+        <div class="column">
+            <label for="videoLink">Link video</label>
+            <input id="videoLink" name="videoLink" formControlName="videoLink" />
+
+            <div *ngIf="!!videoLink && videoLink.invalid && videoLink.touched" class="alert">
+                <span *ngIf="videoLink.errors?.['required']">Please enter a link to the video</span>
+            </div>
+        </div>
+
+        <div class="column">
+            <label for="createdAt">Creation date</label>
+            <input type="date" id="createdAt" name="createdAt" formControlName="createdAt" />
+
+            <div *ngIf="!!createdAt && createdAt.invalid && createdAt.touched" class="alert">
+                <span *ngIf="createdAt.errors?.['required']">Please enter a creation date</span>
+                <span *ngIf="createdAt.errors?.['maxDateValidator']">The date is invalid</span>
+            </div>
+        </div>
+
+        <div class="column" formGroupName="tags">
+            <label for="tags">Tags</label>
+            <div class="row tags" [style.width]="'310px'">
+                <div *ngFor="let control of tags.controls; let i = index" class="row">
+                    <input id="tags" name="tags" [formControlName]="i" [style.width]="'250px'"/>
+                    <app-button class="btn add-tag-btn" type="button" (click)="addTag(i)"> {{ tagBtnSign(i) }} </app-button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row new-card-bnts">
+            <app-button (click)="resetForm()" type="button" class="new-card-btn" [btnStyle]="false">
+                <span class="searching-btn blue-text">Reset</span>
+            </app-button>
+            <app-button type="submit"> Create card </app-button>
+        </div>
+    </form>
+</section>

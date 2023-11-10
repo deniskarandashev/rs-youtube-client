@@ -1,0 +1,5 @@
+<main *ngIf="data" class="items">
+  <div *ngFor="let item of dataItems">
+    <app-search-item [item]="item"></app-search-item>
+  </div>
+</main>

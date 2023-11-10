@@ -1,0 +1,64 @@
+<header class="bg-gray">
+  <div class="row container">
+    <div class="row main-group">
+      <img
+        src="assets/icons/logo.svg"
+        width="50"
+        height="50"
+        alt="logo"
+        style="width: max-content"
+      />
+      <input
+        [disabled]="disabled"
+        class="search-input"
+        type="text"
+        placeholder="What do you want to find out?"
+        [(ngModel)]="searchText"
+        (ngModelChange)="doSearch()"
+      />
+      <app-button
+        id="settings"
+        (click)="isFilteringVisible = !isFilteringVisible"
+        [disabled]="disabled"
+        [styles]="'padding: 0;height: 23px;'"
+      >
+        <img src="assets/icons/search_settings.svg" alt="settings" />
+      </app-button>
+    </div>
+    <app-button
+      class="login-group"
+      [disabled]="disabled"
+      [label]="userName || NO_NAME_TPL"
+      [btnStyle]="false"
+      [styles]="'padding-top: 10px'"
+    >
+      <img src="assets/icons/login.svg" alt="login" />
+    </app-button>
+    <app-button
+      *ngIf="!!userName"
+      (click)="logout()"
+      [disabled]="disabled"
+      [styles]="'padding-top: 6px'"
+    >
+      Logout
+    </app-button>
+  </div>
+
+  <div *ngIf="isFilteringVisible" class="row filter-area">
+    <span class="">Sotring by:</span>
+    <app-button [btnStyle]="false" (click)="sorting(1)" [disabled]="disabled">
+      <span class="searching-btn blue-text">date</span>
+    </app-button>
+    <app-button [btnStyle]="false" (click)="sorting(2)" [disabled]="disabled">
+      <span class="searching-btn blue-text">count of views</span>
+    </app-button>
+    <label class="blue-text" for="filterInput">by word or sentance</label>
+    <input
+      #filterInput
+      (keyup.enter)="sorting(3, filterInput.value)"
+      [disabled]="disabled"
+      id="filterInput"
+      type="text"
+    />
+  </div>
+</header>

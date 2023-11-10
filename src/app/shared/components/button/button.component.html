@@ -1,0 +1,12 @@
+<div class="btn-row">
+  <span class="label" *ngIf="label">{{ label }}</span>
+  <button
+    [ngStyle]="{ opacity: disabled ? '.7' : '1' }"
+    [disabled]="disabled"
+    [class.blue]="btnStyle"
+    [class.none]="!btnStyle"
+    [style]="styles"
+  >
+    <ng-content></ng-content>
+  </button>
+</div>

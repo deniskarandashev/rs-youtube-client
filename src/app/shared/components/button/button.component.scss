@@ -1,0 +1,40 @@
+.blue {
+  background-color: #2f80ed;
+  cursor: pointer;
+  color: #fff;
+  margin: 5px;
+  padding: 5px 19px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 3px 5px grey;
+}
+
+.blue:hover {
+  opacity: 0.7;
+}
+
+.filter-area > input {
+  width: 149px;
+  height: 13px;
+  margin-left: 5px;
+}
+
+.none {
+  border: none;
+  background-color: unset;
+}
+
+.label {
+  color: #4f4f4f;
+
+  text-align: right;
+  font-size: 12px;
+  font-weight: 400;
+  padding-top: 5px;
+}
+
+.btn-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

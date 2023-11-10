@@ -1,0 +1,41 @@
+<section *ngIf="item" class="row">
+  <app-button
+    [btnStyle]="false"
+    (click)="goBack()"
+    class="details-back-btn"
+    [styles]="'padding: 0;height: 23px;'"
+  >
+    <img src="assets/icons/back_button.svg" alt="back" />
+  </app-button>
+  <div class="details-thumbnail">
+    <img
+      [src]="thumbnail.url"
+      [width]="thumbnail.width"
+      [height]="thumbnail.height"
+      alt="thumbnail"
+    />
+  </div>
+  <div class="details-info-wrapper" [style.height]="height">
+    <div class="details-info">
+      <div class="row details-header">
+        <div>
+          <h2>{{ item.snippet.title }}</h2>
+        </div>
+        <div class="details-date-wrapper">
+          <span class="details-date">
+            {{ item.snippet.publishedAt | date: "fullDate" }}
+          </span>
+        </div>
+      </div>
+      <div>
+        <h3>Description:</h3>
+        <p class="details-description">{{ item.snippet.description }}</p>
+      </div>
+    </div>
+    <app-statistics
+      class="statistics"
+      [statistics]="item.statistics"
+    ></app-statistics>
+    <div class="indicator" [style.backgroundColor]="status"></div>
+  </div>
+</section>

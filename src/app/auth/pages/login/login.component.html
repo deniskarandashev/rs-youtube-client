@@ -1,0 +1,38 @@
+<section class="login-container">
+  <form class="login-card" [formGroup]="formGroup" (ngSubmit)="submit()">
+    <h2>Login</h2>
+
+    <div class="column">
+      <label for="login">login</label>
+      <input id="login" name="login" formControlName="login" />
+
+      <div *ngIf="!!login && login.invalid && login.touched" class="alert">
+        <span *ngIf="login.errors?.['required']">Please enter a login email</span>
+        <span *ngIf="login.errors?.['email']">The login email is invalid</span>
+      </div>
+    </div>
+
+    <div class="column">
+      <label for="password">password</label>
+      <input id="password" name="password" type="password" formControlName="password" />
+
+      <div *ngIf="!!password && password.invalid && password.touched" class="alert">
+        <span *ngIf="password.errors?.['required']">Please enter a password</span>
+        <span *ngIf="!password.errors?.['required'] && password.errors?.['passwordValidator']">
+          Your password isn't strong enough. It should contain:<br>
+          - at least 8 characters<br>
+          - a mixture of both uppercase and lowercase letters<br>
+          - a mixture of letters and numbers<br>
+          - at least one special character, e.g., ! @ # ? ]
+        </span>
+      </div>
+    </div>
+
+    <div class="row login-bnts">
+      <app-button class="login-btn" [btnStyle]="false">
+        <span class="searching-btn blue-text">Registration</span>
+      </app-button>
+      <app-button type="submit">Login</app-button>
+    </div>
+  </form>
+</section>

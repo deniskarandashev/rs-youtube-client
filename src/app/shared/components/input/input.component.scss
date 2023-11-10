@@ -1,0 +1,30 @@
+section {
+  width: 100%;
+}
+
+input {
+  padding: 2px 6px;
+  border: none;
+
+  width: 304px;
+  height: 37px;
+
+  background-color: #e0e0e0;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  color: #828282;
+
+  font-family: Roboto;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  margin: 7px;
+}
