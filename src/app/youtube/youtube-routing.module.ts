@@ -20,8 +20,7 @@ const routes: Routes = [
     },
     {
         path: "create",
-        component: NewCardComponent,
-        canActivate: [AuthGuard],
+        component: NewCardComponent
     },
     {
         path: "login",
